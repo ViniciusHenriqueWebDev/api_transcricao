@@ -1,0 +1,57 @@
+# Node modules
+node_modules/
+*/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Build outputs
+backend/dist/
+frontend/build/
+frontend/.next/
+
+# Certificates
+backend/certs/*.pem
+backend/certs/*.key
+backend/certs/*.crt
+
+# Database
+*.sqlite
+*.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+api_transcricao/
+
+# Docker
+.dockerignore
+
+# PM2
+.pm2/
+
+# Backups
+*_backup_*
