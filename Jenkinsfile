@@ -19,6 +19,7 @@ pipeline {
                 echo '🔧 Building Backend...'
                 dir('backend') {
                     sh '''
+                        npm install --legacy-peer-deps
                         npm run build
                     '''
                 }
@@ -30,6 +31,7 @@ pipeline {
                 echo '🔧 Building Frontend...'
                 dir('frontend') {
                     sh '''
+                        npm install --legacy-peer-deps
                         npm run build
                     '''
                 }
