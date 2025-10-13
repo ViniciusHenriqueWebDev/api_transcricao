@@ -58,8 +58,8 @@ pipeline {
                 echo '🔄 Reiniciando/iniciando serviços PM2...'
                 sh '''
                     # Reiniciar se existir; caso contrário, iniciar backend e frontend
-                    pm2 restart backend || pm2 start npm --name backend -- start --cwd ${BACKEND_PATH}
-                    pm2 restart frontend || pm2 start npm --name frontend -- start --cwd ${FRONTEND_PATH}
+                    pm2 restart empresa-backend || pm2 start npm --name empresa-backend -- start --cwd ${BACKEND_PATH}
+                    pm2 restart empresa-frontend || pm2 start npm --name empresa-frontend -- start --cwd ${FRONTEND_PATH}
                     sleep 3
                     pm2 status
                 '''
