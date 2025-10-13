@@ -19,7 +19,6 @@ pipeline {
                 echo '🔧 Building Backend...'
                 dir('backend') {
                     sh '''
-                        npm install --legacy-peer-deps
                         npm run build
                     '''
                 }
@@ -31,7 +30,6 @@ pipeline {
                 echo '🔧 Building Frontend...'
                 dir('frontend') {
                     sh '''
-                        npm install --legacy-peer-deps
                         npm run build
                     '''
                 }
@@ -49,19 +47,6 @@ pipeline {
                     # Copiar frontend (preservando .env e node_modules)
                     rsync -av --exclude='node_modules' --exclude='.env' --delete \
                         frontend/ ${FRONTEND_PATH}/
-                """
-            }
-        }
-        
-        stage('Install Dependencies') {
-            steps {
-                echo '📦 Instalando dependências em produção...'
-                sh """
-                    cd ${BACKEND_PATH}
-                    npm install --production --legacy-peer-deps
-                    
-                    cd ${FRONTEND_PATH}
-                    npm install --production --legacy-peer-deps
                 """
             }
         }
@@ -88,7 +73,7 @@ pipeline {
         }
         failure {
             echo '❌ Falha no deploy!'
-            sh '''
+            sh '''   
                 echo "=== LOGS DE ERRO ==="
                 pm2 logs --err --lines 30 --nostream
             '''
