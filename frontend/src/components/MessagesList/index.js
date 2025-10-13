@@ -551,7 +551,7 @@ const MessagesList = ({ ticket, ticketId, isGroup, user }) => {
             <AudioModal
               url={message.mediaUrl}
               message={message}
-              disableTranscription={false}
+              disableTranscription={true}
             />
           </div>
         );
